@@ -1,0 +1,11 @@
+.d-flex.flex-wrap.align-items-center.py-2.border-bottom
+  .navbar.navbar-expand-md.navbar-light.me-auto
+    = link_to t('nav.board'), root_path, class: 'navbar-brand me-md-4'
+    ul.nav.nav-pills.flex-grow-1.navbar-nav.me-auto
+      li.nav-item.me-2
+        = link_to t('nav.home'), root_path, class: 'nav-link text-dark'
+  ul.nav.nav-pills
+    li.nav-item.me-2
+      <a class="nav-link text-dark" href="/session/new">Login</a>
+    li.nav-item.me-2
+      <a class="nav-link text-dark" href="/users/new">Signup</a>

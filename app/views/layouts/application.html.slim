@@ -8,10 +8,11 @@ html
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body.d-flex.flex.column.h-100
+  body.d-flex.flex-column.h-100
     .container.mb-2
       = render 'shared/nav'
-    = yield
+    main
+      = yield
     footer.bg-dark.text-light.mt-auto
       .container-xl
         .row.py-2

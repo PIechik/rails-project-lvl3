@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    @user = User.find_or_create_by(auth_hash)
+    @user = User.find_or_create_by_auth(auth_hash)
     self.current_user = @user
     redirect_to '/'
   end

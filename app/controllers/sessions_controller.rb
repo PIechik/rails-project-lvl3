@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_or_create_by(auth_hash.merge(permitted_params))
+    @user = User.find_or_create_by(auth_hash)
     self.current_user = @user
     redirect_to '/'
   end
@@ -17,11 +17,5 @@ class SessionsController < ApplicationController
 
   def auth_hash
     request.env['omniauth.auth']
-  end
-
-  private
-
-  def permitted_params
-    params.require(:user).permit(:role)
   end
 end

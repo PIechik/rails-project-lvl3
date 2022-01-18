@@ -6,6 +6,6 @@
         = link_to t('nav.home'), root_path, class: 'nav-link text-dark'
   ul.nav.nav-pills
     li.nav-item.me-2
-      <a class="nav-link text-dark" href="/session/new">Login</a>
+      = link_to t('nav.login'), new_session_path, class: 'nav-link text-dark'
     li.nav-item.me-2
       <a class="nav-link text-dark" href="/users/new">Signup</a>

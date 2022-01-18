@@ -3,9 +3,7 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
-  def new
-    @user = User.new
-  end
+  def new; end
 
   def create
     @user = User.find_or_create_by(auth_hash)

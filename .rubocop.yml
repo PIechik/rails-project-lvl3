@@ -12,3 +12,5 @@ Metrics/MethodLength:
   Enabled: false
 Metrics/BlockLength:
   Enabled: false
+Layout/LineLength:
+  Max: 200

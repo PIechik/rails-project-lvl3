@@ -32,3 +32,5 @@
 en:
   footer: Hexlet
   title: Bulletins
+  fail: Fail
+  success: Success

@@ -1,5 +1,7 @@
-nav:
-  board: Bulletin Board
-  home: Home
-  login: Login
-  signup: Sign up
+en:
+  nav:
+    board: Bulletin Board
+    home: Home
+    login: Login
+    sign_up: Sign up
+    sign_out: Sign out

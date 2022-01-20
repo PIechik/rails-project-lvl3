@@ -1,1 +1,5 @@
 = button_to 'Github', '/auth/github', method: :post
+
+= simple_form_for User.new, url: sessions_path do |f|
+  = f.input :email
+  = f.button :submit, t('admin.sign_in')

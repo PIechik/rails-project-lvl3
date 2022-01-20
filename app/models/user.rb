@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :bulletins, dependent: :destroy
+
   def find_or_create_by_auth(auth_hash)
     user = User.find_or_create_by(
       strategy: auth_hash['provider'],

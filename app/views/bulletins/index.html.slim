@@ -5,4 +5,14 @@
 .p-3.bg-light
 .row.mt-2
   .col-3.pt-2
-    .card.shadow-sm
+    - @bulletins.each do |bulletin|
+      .card.shadow-sm
+        - if bulletin.image.attached?
+          - if bulletin.image.representable?
+            = image_tag bulletin.image, class: 'img-tumbnail mb-2'
+        .card-body
+          = link_to bulletin_path(bulletin.id) do
+            h5.card-title
+              = bulletin.name
+          h6.card-subtitle.mb-2.text-muted
+            = time_ago_in_words bulletin.created_at

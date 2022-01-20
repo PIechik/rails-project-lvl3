@@ -1,0 +1,13 @@
+h2
+  = @bulletin.name
+hr
+.row
+  .col-8
+    - if @bulletin.image.representable?
+      = image_tag @bulletin.image.representation(resize_to_limit: [300, 300])
+    p
+      = @bulletin.description
+  .col-4
+    .card
+      .card-body
+        = @bulletin.user.name

@@ -6,11 +6,12 @@ Rails.application.routes.draw do
     root 'bulletins#index'
     resources :bulletins, only: %i[index show new create]
     resources :sessions, only: %i[new create destroy]
+    resources :users, only: :new
     get '/auth/github/callback', to: 'sessions#create'
 
     namespace :admin do
-      resources :categories
-      resources :users
+      resources :categories, except: :show
+      resources :users, except: :new
       resources :bulletins
     end
   end

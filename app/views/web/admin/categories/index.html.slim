@@ -1,0 +1,19 @@
+h1.h2.mb-4
+  = t('admin.categories')
+= link_to t('admin.new_category'), new_admin_category_path
+.row.mt-2
+  table.table.table-borderless
+    thead
+      tr
+        th{ scope: :col } = t('.id')
+        th{ scope: :col } = t('.name')
+        th{ scope: :col } = t('.actions')
+        th
+    tbody
+      - @categories.each do |category|
+        tr
+          td = category.id
+          td = category.name
+          td
+            = link_to t('edit'), edit_admin_category_path(category)
+            = link_to t('destroy'), admin_category_path(category), method: :delete

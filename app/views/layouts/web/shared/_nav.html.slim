@@ -4,8 +4,12 @@
     ul.nav.nav-pills.flex-grow-1.navbar-nav.me-auto
       li.nav-item.me-2
         = link_to t('nav.home'), root_path, class: 'nav-link text-dark'
+      li.nav-item.me-2
+        = link_to t('nav.new_bulletin'), new_bulletin_path, class: 'nav-link text-dark'
   ul.nav.nav-pills
     - if current_user
+      li.nav-item.me-2
+        = link_to t('admin.title'), admin_categories_path, class: 'nav-link text-dark'
       li.nav-item.me-2
         = link_to t('nav.sign_out'), session_path(current_user.id), method: :delete, class: 'nav-link text-dark'
     - else

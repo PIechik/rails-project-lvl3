@@ -40,6 +40,7 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'should create new bulletin' do
     sign_in_user(users(:one))
     post bulletins_path, params: { bulletin: @bulletin_params }
+
     bulletin = Bulletin.find_by(name: @bulletin_params[:name])
     assert { bulletin }
     assert_redirected_to bulletin
@@ -47,6 +48,7 @@ class BulletinsControllerTest < ActionDispatch::IntegrationTest
 
   test 'shouldn\'t create bulletin if user is not signed in' do
     post bulletins_path, params: { bulletin: @bulletin_params }
+
     bulletin = Bulletin.find_by(name: @bulletin_params[:name])
     assert { !bulletin }
     assert_redirected_to new_session_path

@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   root 'bulletins#index'
   resources :bulletins
   resources :sessions, only: %i[new create destroy]
-  post '/auth/github/callback', to: 'sessions#create'
+  get '/auth/github/callback', to: 'sessions#create'
 end

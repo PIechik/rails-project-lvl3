@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     else
       @user = User.find_or_create_by_auth(auth_hash)
       session[:user_id] = @user.id
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email) if params[:user]
   end
 
   def sign_in_as_admin

@@ -38,11 +38,12 @@ module Web
 
       test 'should update category' do
         sign_in_user(users(:one))
+        category = categories(:one)
         params = { name: Faker::Lorem.word }
-        patch admin_category_path(categories(:one)), params: { category: params }
+        patch admin_category_path(category), params: { category: params }
 
-        category = Category.find_by(params)
-        assert { category }
+        category.reload
+        assert { category.name == params[:name] }
         assert_redirected_to admin_categories_path
       end
 

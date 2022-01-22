@@ -10,11 +10,8 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body.d-flex.flex-column.h-100
     .container.mb-2
-      = render 'shared/nav'
-    - if flash.any?
-      - flash.each do |type, msg|
-        .container.alert.alert-info
-          = msg
+      = render 'layouts/web/shared/nav'
+    = render 'layouts/web/shared/flash'
     main
       .mt-4.mb-5.pb-5
         .container

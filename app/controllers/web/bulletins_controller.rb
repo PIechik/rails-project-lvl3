@@ -38,7 +38,7 @@ module Web
       authorize @bulletin
 
       if @bulletin.update(bulletin_params)
-        redirect_to request.referer, notice: t('success')
+        redirect_to profile_path, notice: t('success')
       else
         render :edit, notice: t('fail')
       end
@@ -49,7 +49,7 @@ module Web
       authorize @bulletin
 
       @bulletin.destroy
-      redirect_to request.referer
+      redirect_to profile_path
     end
 
     def moderate
@@ -70,9 +70,9 @@ module Web
       @bulletin.archive
 
       if @bulletin.save
-        redirect_to request.referer, notice: t('success')
+        redirect_to profile_path, notice: t('success')
       else
-        redirect_to request.referer, notice: t('fail')
+        redirect_to profile_path, notice: t('fail')
       end
     end
 

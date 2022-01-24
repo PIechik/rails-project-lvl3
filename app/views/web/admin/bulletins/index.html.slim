@@ -1,0 +1,21 @@
+h1.h2.mb-4
+  = t('admin.bulletins')
+.row.mt-2
+  table.table.table-borderless
+    thead
+      tr
+        th{ scope: :col } = t('.id')
+        th{ scope: :col } = t('.name')
+        th{ scope: :col } = t('.state')
+        th{ scope: :col } = t('.published_at')
+        th{ scope: :col } = t('.actions')
+        th
+    tbody
+      - @bulletins.each do |bulletin|
+        tr
+          td = bulletin.id
+          td = bulletin.name
+          td
+          td = time_ago_in_words bulletin.created_at
+          td
+            = link_to t('show'), bulletin_path(bulletin)

@@ -5,11 +5,11 @@ one:
   email: one@test.com
   strategy: MyString
   uid: one
-  role: admin
+  admin: true
 
 two:
   name: MyString
   email: two@test.com
   strategy: MyString
   uid: two
-  role: user
+  admin: false

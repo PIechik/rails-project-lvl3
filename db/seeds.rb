@@ -9,6 +9,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Category.create(name: 'Hobby')
 Category.create(name: 'Animals')
-User.create(name: 'TestUser', strategy: 'github', email: 'test@test.com', uid: 'test-id', role: 'admin')
+User.create(name: 'TestUser', strategy: 'github', email: 'test@test.com', uid: 'test-id', admin: true)
 Bulletin.create(name: 'Cat', description: 'Simple cat', user_id: 1, category_id: 2)
 Bulletin.create(name: 'Brush', description: 'Big brush', user_id: 1, category_id: 1)

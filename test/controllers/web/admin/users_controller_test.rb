@@ -27,7 +27,7 @@ module Web
           email: Faker::Internet.email,
           strategy: 'github',
           uid: Faker::Internet.uuid,
-          role: 'user'
+          admin: false
         }
         post admin_users_path, params: { user: params }
 

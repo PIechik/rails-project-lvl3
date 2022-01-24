@@ -14,7 +14,7 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
     def sign_in_user(user = nil)
-      if user&.role == 'admin'
+      if user&.admin?
         post sessions_path, params: { user: { email: user.email } }
       else
         config_omniauth_mock(user)

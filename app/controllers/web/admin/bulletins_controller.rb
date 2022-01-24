@@ -5,6 +5,7 @@ module Web
     class BulletinsController < ApplicationController
       def index
         @bulletins = Bulletin.all
+        authorize([:admin, @bulletins])
       end
     end
   end

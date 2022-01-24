@@ -5,14 +5,17 @@ module Web
     class UsersController < ApplicationController
       def index
         @users = User.all
+        authorize([:admin, @users])
       end
 
       def new
         @user = User.new
+        authorize([:admin, @user])
       end
 
       def create
         @user = User.new(user_params)
+        authorize([:admin, @user])
 
         if @user.save
           redirect_to admin_users_path, notice: t('success')
@@ -23,10 +26,12 @@ module Web
 
       def edit
         @user = User.find(params[:id])
+        authorize([:admin, @user])
       end
 
       def update
         @user = User.find(params[:id])
+        authorize([:admin, @user])
 
         if @user.update(user_params)
           redirect_to admin_users_path, notice: t('success')
@@ -37,6 +42,7 @@ module Web
 
       def destroy
         @user = User.find(params[:id])
+        authorize([:admin, @user])
 
         @user.destroy
         redirect_to admin_users_path, notice: t('success')
@@ -45,7 +51,7 @@ module Web
       private
 
       def user_params
-        params.require(:user).permit(:name, :email, :strategy, :uid, :role)
+        params.require(:user).permit(:name, :email, :strategy, :uid, :admin)
       end
     end
   end

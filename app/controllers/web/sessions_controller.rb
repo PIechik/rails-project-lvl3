@@ -35,7 +35,7 @@ module Web
 
     def sign_in_as_admin
       @user = User.find_by(user_params)
-      if @user && @user.role == 'admin'
+      if @user&.admin?
         session[:user_id] = @user.id
         redirect_to root_path, notice: t('success')
       else

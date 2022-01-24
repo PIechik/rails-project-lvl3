@@ -39,7 +39,7 @@ module Web
         @category = Category.find(params[:id])
 
         @category.destroy
-        redirect_to admin_categories_path
+        redirect_to admin_categories_path, notice: t('success')
       end
 
       private

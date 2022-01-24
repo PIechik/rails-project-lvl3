@@ -10,21 +10,18 @@ module Web
       end
 
       test 'should open index page' do
-        skip
         get admin_users_path
 
         assert_response :success
       end
 
       test 'should open new user page' do
-        skip
         get new_admin_user_path
 
         assert_response :success
       end
 
       test 'should create new user' do
-        skip
         params = {
           name: Faker::Internet.username,
           email: Faker::Internet.email,
@@ -40,14 +37,12 @@ module Web
       end
 
       test 'should open edit page' do
-        skip
-        get edit_admin_user_page(users(:two))
+        get edit_admin_user_path(users(:two))
 
         assert_response :success
       end
 
       test 'should update user' do
-        skip
         user = users(:two)
         params = { email: Faker::Internet.email }
         patch admin_user_path(user), params: { user: params }
@@ -58,7 +53,6 @@ module Web
       end
 
       test 'should destroy user' do
-        skip
         user = users(:two)
         delete admin_user_path(user)
 

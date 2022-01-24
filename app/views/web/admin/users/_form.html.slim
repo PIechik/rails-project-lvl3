@@ -1,0 +1,7 @@
+= simple_form_for @user, url: url do |f|
+  = f.input :name
+  = f.input :email
+  = f.input :strategy
+  = f.input :uid
+  = f.input :role, collection: %w[user admin]
+  = f.button :submit

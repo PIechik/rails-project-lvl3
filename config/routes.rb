@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :categories, except: :show
-      resources :users, except: :new
+      resources :users, except: :show
       resources :bulletins
     end
   end

@@ -18,8 +18,8 @@ module Web
     end
 
     def create
+      authorize Bulletin
       @bulletin = current_user.bulletins.build(bulletin_params)
-      authorize @bulletin
 
       if @bulletin.save
         redirect_to @bulletin, notice: t('success')

@@ -35,7 +35,7 @@ module Web
     test 'should redirect from new bulletin page if user is not signed in' do
       get new_bulletin_path
 
-      assert_redirected_to new_session_path
+      assert_redirected_to root_path
     end
 
     test 'should create new bulletin' do
@@ -52,7 +52,7 @@ module Web
 
       bulletin = Bulletin.find_by(name: @bulletin_params[:name])
       assert { !bulletin }
-      assert_redirected_to new_session_path
+      assert_redirected_to root_path
     end
   end
 end

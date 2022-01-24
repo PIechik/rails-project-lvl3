@@ -15,7 +15,14 @@ h1.h2.mb-4
         tr
           td = bulletin.id
           td = bulletin.name
-          td
+          td = bulletin.state
           td = time_ago_in_words bulletin.created_at
           td
-            = link_to t('show'), bulletin_path(bulletin)
+            - if policy(bulletin).show?
+              = link_to t('show'), bulletin_path(bulletin), class: 'me-2'
+            - if policy([:admin, bulletin]).publish?
+              = link_to t('publish'), publish_admin_bulletin_path(bulletin), method: :patch, class: 'me-2'
+            - if policy([:admin, bulletin]).reject?
+              = link_to t('reject'), reject_admin_bulletin_path(bulletin), method: :patch, class: 'me-2'
+            - if policy([:admin, bulletin]).archive?
+              = link_to t('archive'), archive_admin_bulletin_path(bulletin), method: :patch, class: 'me-2 text-danger'

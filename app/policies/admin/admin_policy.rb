@@ -3,26 +3,24 @@
 module Admin
   class AdminPolicy < ApplicationPolicy
     def index?
-      user&.admin?
+      admin?
     end
 
     def create?
-      user&.admin?
-    end
-
-    def new?
-      create?
+      admin?
     end
 
     def update?
-      user&.admin?
-    end
-
-    def edit?
-      update?
+      admin?
     end
 
     def destroy?
+      admin?
+    end
+
+    private
+
+    def admin?
       user&.admin?
     end
   end

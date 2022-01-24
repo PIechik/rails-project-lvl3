@@ -4,8 +4,12 @@
     ul.nav.nav-pills.flex-grow-1.navbar-nav.me-auto
       li.nav-item.me-2
         = link_to t('nav.home'), root_path, class: 'nav-link text-dark'
-      li.nav-item.me-2
-        = link_to t('nav.new_bulletin'), new_bulletin_path, class: 'nav-link text-dark'
+      - if policy(Bulletin).profile?
+        li.nav-item.me-2
+          = link_to t('nav.my_bulletins'), profile_path, class: 'nav-link text-dark'
+      - if policy(Bulletin).new?
+        li.nav-item.me-2
+          = link_to t('nav.new_bulletin'), new_bulletin_path, class: 'nav-link text-dark'
   ul.nav.nav-pills
     - if policy([:admin, Bulletin]).index?
       li.nav-item.me-2

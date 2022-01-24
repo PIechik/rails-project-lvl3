@@ -1,0 +1,29 @@
+h1.h2.mb-4
+  = t('nav.my_bulletins')
+= link_to t('nav.new_bulletin'), new_bulletin_path
+.row.mt-2
+  table.table.table-borderless
+    thead
+      tr
+        th{ scope: :col } = t('.name')
+        th{ scope: :col } = t('.state')
+        th{ scope: :col } = t('.published_at')
+        th{ scope: :col } = t('.actions')
+        th
+    tbody
+      - @bulletins.each do |bulletin|
+        tr
+          td = bulletin.name
+          td = bulletin.state
+          td = time_ago_in_words bulletin.created_at
+          td
+            - if policy(bulletin).show?
+              = link_to t('show'), bulletin_path(bulletin), class: 'me-2'
+            - if policy(bulletin).edit?
+              = link_to t('edit'), edit_bulletin_path(bulletin), class: 'me-2'
+            - if policy(bulletin).moderate?
+              = link_to t('moderate'), moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
+            - if policy(bulletin).archive?
+              = link_to t('archive'), archive_bulletin_path(bulletin), method: :patch, class: 'me-2 text-danger'
+            - if policy(bulletin).destroy?
+              = link_to t('delete'), bulletin_path(bulletin), method: :delete, class: 'me-2 text-danger'

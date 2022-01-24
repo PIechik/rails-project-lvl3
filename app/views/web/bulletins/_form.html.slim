@@ -1,0 +1,6 @@
+= simple_form_for @bulletin do |f|
+  = f.input :name
+  = f.input :description
+  = f.association :category
+  = f.input :image
+  = f.button :submit

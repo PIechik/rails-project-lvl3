@@ -40,8 +40,7 @@ module ActiveSupport
       {
         provider: 'github',
         info: {
-          first_name: Faker::Name.first_name,
-          last_name: Faker::Name.last_name,
+          name: Faker::Name.name,
           email: Faker::Internet.email
         }
       }
@@ -51,8 +50,7 @@ module ActiveSupport
       {
         provider: 'github',
         info: {
-          first_name: user.first_name,
-          last_name: user.last_name,
+          name: user.name,
           email: user.email
         }
       }

@@ -1,7 +1,8 @@
 en:
   search:
     category: Choose category
-    name: Search by title
+    email: Search by email
+    name: Search by name
     reset: Reset
     search: Search
     state: Search by state

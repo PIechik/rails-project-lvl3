@@ -4,7 +4,8 @@ module Web
   module Admin
     class CategoriesController < ApplicationController
       def index
-        @categories = Category.all.order(created_at: :desc).page(params[:page])
+        @q = Category.all.ransack(params[:q])
+        @categories = @q.result.order(created_at: :desc).page(params[:page])
         authorize([:admin, @categories])
       end
 

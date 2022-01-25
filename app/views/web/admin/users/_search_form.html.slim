@@ -1,0 +1,13 @@
+= search_form_for @q, url: admin_users_path do |f|
+  .row.my-2
+    .col-6
+      .form-group.mb-3.string.required
+        = f.label t('search.name')
+        = f.text_field :name_cont, { class: 'form-control string' }
+    .col-4
+      .form-group.mb-3.string.required
+        = f.label t('search.email')
+        = f.text_field :email_cont, { class: 'form-control string' }
+    .col-2
+      = f.submit t('search.search'), { class: 'btn btn-primary' }
+      = link_to t('search.reset'), admin_users_path, class: 'btn btn-outline-primary'

@@ -1,5 +1,7 @@
 h1.h2.mb-4
   = t('admin.users')
+.p-3.bg-light
+  = render 'search_form'
 - if policy([:admin, User]).new?
   = link_to t('admin.new_user'), new_admin_user_path
 .row.mt-2
@@ -8,6 +10,7 @@ h1.h2.mb-4
       tr
         th{ scope: :col } = t('.id')
         th{ scope: :col } = t('.name')
+        th{ scope: :col } = t('.email')
         th{ scope: :col } = t('.actions')
         th
     tbody
@@ -15,6 +18,7 @@ h1.h2.mb-4
         tr
           td = user.id
           td = user.name
+          td = user.email
           td
             - if policy([:admin, user]).edit?
               = link_to t('edit'), edit_admin_user_path(user), class: 'me-2'

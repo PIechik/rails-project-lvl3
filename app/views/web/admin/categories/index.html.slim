@@ -1,5 +1,7 @@
 h1.h2.mb-4
   = t('admin.categories')
+.p-3.bg-light
+  = render 'search_form'
 - if policy([:admin, Category]).new?
   = link_to t('admin.new_category'), new_admin_category_path
 .row.mt-2

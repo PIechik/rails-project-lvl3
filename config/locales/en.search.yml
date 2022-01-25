@@ -4,3 +4,4 @@ en:
     name: Search by title
     reset: Reset
     search: Search
+    state: Search by state

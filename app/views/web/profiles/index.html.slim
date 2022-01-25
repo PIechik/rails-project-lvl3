@@ -1,5 +1,7 @@
 h1.h2.mb-4
   = t('nav.my_bulletins')
+.p-3.bg-light
+  = render 'search_form'
 = link_to t('nav.new_bulletin'), new_bulletin_path
 .row.mt-2
   table.table.table-borderless

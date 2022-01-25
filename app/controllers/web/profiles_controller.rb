@@ -4,7 +4,8 @@ module Web
   class ProfilesController < ApplicationController
     def index
       authorize Bulletin, :profile?
-      @bulletins = current_user.bulletins.order(created_at: :desc)
+      @q = current_user.bulletins.ransack(params[:q])
+      @bulletins = @q.result.order(created_at: :desc)
     end
   end
 end

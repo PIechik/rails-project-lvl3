@@ -14,7 +14,7 @@
         .card-body
           = link_to bulletin_path(bulletin.id) do
             h5.card-title
-              = bulletin.name
+              = bulletin.title
           h6.card-subtitle.mb-2.text-muted
             = time_ago_in_words bulletin.created_at
 = paginate @bulletins

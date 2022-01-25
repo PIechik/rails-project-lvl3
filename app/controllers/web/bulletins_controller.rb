@@ -80,7 +80,7 @@ module Web
     private
 
     def bulletin_params
-      params.require(:bulletin).permit(:image, :name, :description, :category_id)
+      params.require(:bulletin).permit(:image, :title, :description, :category_id)
     end
   end
 end

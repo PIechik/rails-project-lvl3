@@ -29,14 +29,14 @@ module Web
 
     test 'should create new bulletin' do
       bulletin_params = {
-        name: Faker::Creature::Animal.name,
+        title: Faker::Creature::Animal.name,
         description: Faker::Lorem.paragraph,
         category_id: categories(:two).id,
         image: fixture_file_upload('dog.jpeg', 'image/jpeg')
       }
       post bulletins_path, params: { bulletin: bulletin_params }
 
-      bulletin = Bulletin.find_by(name: bulletin_params[:name])
+      bulletin = Bulletin.find_by(title: bulletin_params[:title])
       assert { bulletin }
       assert_redirected_to bulletin
     end
@@ -48,11 +48,11 @@ module Web
     end
 
     test 'should update bulletin' do
-      params = { name: Faker::Lorem.word }
+      params = { title: Faker::Lorem.word }
       patch bulletin_path(@bulletin), params: { bulletin: params }
 
       @bulletin.reload
-      assert { @bulletin.name == params[:name] }
+      assert { @bulletin.title == params[:title] }
       assert_redirected_to profile_path
     end
 

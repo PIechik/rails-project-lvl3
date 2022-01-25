@@ -15,7 +15,7 @@ h1.h2.mb-4
     tbody
       - @bulletins.each do |bulletin|
         tr
-          td = bulletin.name
+          td = bulletin.title
           td = bulletin.state
           td = time_ago_in_words bulletin.created_at
           td

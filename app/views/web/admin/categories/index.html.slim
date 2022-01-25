@@ -17,6 +17,6 @@ h1.h2.mb-4
           td = category.name
           td
             - if policy([:admin, category]).edit?
-              = link_to t('edit'), edit_admin_category_path(category)
+              = link_to t('edit'), edit_admin_category_path(category), class: 'me-2'
             - if policy([:admin, category]).destroy?
-              = link_to t('destroy'), admin_category_path(category), method: :delete
+              = link_to t('destroy'), admin_category_path(category), method: :delete, class: 'me-2 text-danger'

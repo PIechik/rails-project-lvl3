@@ -29,3 +29,4 @@ h1.h2.mb-4
               = link_to t('archive'), archive_bulletin_path(bulletin), method: :patch, class: 'me-2 text-danger'
             - if policy(bulletin).destroy?
               = link_to t('delete'), bulletin_path(bulletin), method: :delete, class: 'me-2 text-danger'
+= paginate @bulletins

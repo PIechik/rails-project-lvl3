@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: one@test.com
-  strategy: MyString
-  uid: one
+  name: <%= Faker::Internet.username %>
+  email: <%= Faker::Internet.email %>
+  strategy: github
+  uid: <%= Faker::Internet.uuid %>
   admin: true
 
 two:
-  name: MyString
-  email: two@test.com
-  strategy: MyString
-  uid: two
+  name: <%= Faker::Internet.username %>
+  email: <%= Faker::Internet.email %>
+  strategy: github
+  uid: <%= Faker::Internet.uuid %>
   admin: false

@@ -18,4 +18,4 @@
               hr.w-100.ms-3
             .row
               .col
-                = button_to 'Github', '/auth/github', method: :post, class: 'btn w-100 border btn-outline-secondary'
+                = button_to 'Github', auth_request_path(:github), method: :post, class: 'btn w-100 border btn-outline-secondary'

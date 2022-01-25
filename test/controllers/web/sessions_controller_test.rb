@@ -24,15 +24,6 @@ module Web
       assert_redirected_to new_session_path
     end
 
-    test 'should sign in user through github' do
-      config_omniauth_mock
-      post '/auth/github'
-
-      follow_redirect!
-      assert { session[:user_id] }
-      assert_redirected_to root_path
-    end
-
     test 'should sign out' do
       sign_in_user(users(:one))
       delete session_path(users(:one).id)

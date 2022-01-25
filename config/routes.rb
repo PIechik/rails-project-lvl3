@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :sessions, only: %i[new create destroy]
     resources :users, only: :new
     get '/profile', to: 'profiles#index'
-    get '/auth/:provider/callback', to: 'sessions#create'
+    get '/auth/:provider/callback', to: 'sessions#create', as: :callback_auth
 
     namespace :admin do
       resources :categories, except: :show

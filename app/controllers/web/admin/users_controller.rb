@@ -4,7 +4,7 @@ module Web
   module Admin
     class UsersController < ApplicationController
       def index
-        @users = User.all
+        @users = User.all.order(created_at: :desc).page(params[:page])
         authorize([:admin, @users])
       end
 

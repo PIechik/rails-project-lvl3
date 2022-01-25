@@ -3,6 +3,7 @@
     = t('title')
   hr
 .p-3.bg-light
+  = render 'search_form'
 .row.mt-2
   .col-3.pt-2
     - @bulletins.each do |bulletin|

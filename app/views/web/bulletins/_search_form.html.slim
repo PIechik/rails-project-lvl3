@@ -1,0 +1,13 @@
+= search_form_for @q do |f|
+    .row.my-2
+      .col-6
+        .form-group.mb-3.string.required
+          = f.label t('search.name')
+          = f.text_field :name_cont, { class: 'form-control string' }
+      .col-4
+        .form-group.mb-3.string.required
+          = f.label t('search.category')
+          = f.select :category_id_eq, options_from_collection_for_select(Category.all, :id, :name), { include_blank: true }, { class: 'form-control select' }
+      .col-2
+        = f.submit t('search.search'), { class: 'btn btn-primary' }
+        = link_to t('search.reset'), root_path, class: 'btn btn-outline-primary'

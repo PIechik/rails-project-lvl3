@@ -4,7 +4,8 @@ module Web
   module Admin
     class BulletinsController < ApplicationController
       def index
-        @bulletins = Bulletin.all
+        @q = Bulletin.all.ransack(params[:q])
+        @bulletins = @q.result.order(created_at: :desc)
         authorize([:admin, @bulletins])
       end
 

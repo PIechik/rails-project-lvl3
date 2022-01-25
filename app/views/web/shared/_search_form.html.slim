@@ -1,4 +1,4 @@
-= search_form_for @q, url: profile_path do |f|
+= search_form_for @q, url: url do |f|
     .row.my-2
       .col-6
         .form-group.mb-3.string.required
@@ -10,4 +10,4 @@
           = f.select :state_eq, Bulletin.aasm.states, { include_blank: true }, { class: 'form-control select' }
       .col-2
         = f.submit t('search.search'), { class: 'btn btn-primary' }
-        = link_to t('search.reset'), profile_path, class: 'btn btn-outline-primary'
+        = link_to t('search.reset'), url, class: 'btn btn-outline-primary'

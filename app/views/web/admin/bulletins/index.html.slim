@@ -1,5 +1,7 @@
 h1.h2.mb-4
   = t('admin.bulletins')
+.p-3.bg-light
+  = render 'web/shared/search_form', url: admin_bulletins_path
 .row.mt-2
   table.table.table-borderless
     thead

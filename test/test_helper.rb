@@ -39,9 +39,9 @@ module ActiveSupport
     def new_user_params
       {
         provider: 'github',
-        uid: Faker::Internet.uuid,
         info: {
-          nickname: Faker::Internet.username,
+          first_name: Faker::Name.first_name,
+          last_name: Faker::Name.last_name,
           email: Faker::Internet.email
         }
       }
@@ -50,9 +50,9 @@ module ActiveSupport
     def existing_user_params(user)
       {
         provider: 'github',
-        uid: user.uid,
         info: {
-          nickname: user.name,
+          first_name: user.first_name,
+          last_name: user.last_name,
           email: user.email
         }
       }

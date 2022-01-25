@@ -2,8 +2,8 @@
   .row.my-2
     .col-6
       .form-group.mb-3.string.required
-        = f.label t('search.name')
-        = f.text_field :name_cont, { class: 'form-control string' }
+        = f.label t('search.first_last_name')
+        = f.text_field :first_name_or_last_name_cont, { class: 'form-control string' }
     .col-4
       .form-group.mb-3.string.required
         = f.label t('search.email')

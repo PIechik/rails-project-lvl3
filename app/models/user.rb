@@ -6,9 +6,8 @@ class User < ApplicationRecord
   def self.find_or_create_by_auth(auth_hash)
     user = User.find_or_create_by(
       email: auth_hash['info']['email'],
-      strategy: auth_hash['provider'],
-      uid: auth_hash['uid'],
-      name: auth_hash['info']['nickname']
+      first_name: auth_hash['info']['first_name'],
+      last_name: auth_hash['info']['last_name']
     )
     user.save
     user

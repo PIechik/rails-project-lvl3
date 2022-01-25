@@ -23,10 +23,9 @@ module Web
 
       test 'should create new user' do
         params = {
-          name: Faker::Internet.username,
+          first_name: Faker::Name.first_name,
+          last_name: Faker::Name.last_name,
           email: Faker::Internet.email,
-          strategy: 'github',
-          uid: Faker::Internet.uuid,
           admin: false
         }
         post admin_users_path, params: { user: params }

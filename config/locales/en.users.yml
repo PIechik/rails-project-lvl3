@@ -1,0 +1,12 @@
+en:
+  users:
+    actions:
+      confirm_delete: Confirm deleting user
+    edit_user: Edit user
+    email: Email
+    name: Name
+    new_user: New user
+    search:
+      name: Search by name
+      email: Search by email
+    title: Users

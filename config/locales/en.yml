@@ -1,5 +1,19 @@
 en:
+  actions: Actions
+  admin:
+    title: Admin
+    wrong_email: 'To enter as admin use this email: test@test.com'
+  destroy: Destroy
+  edit: Edit
   fail: Fail
   footer: Hexlet
+  search: Search
+  reset: reset
+  sign_in:
+    admin: Sign in as admin
+    github: Github
+    social: Via social media
+    title: Sign in
   success: Success
+  show: Show
   title: Bulletins

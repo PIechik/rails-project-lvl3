@@ -2,12 +2,12 @@
     .row.my-2
       .col-6
         .form-group.mb-3.string.required
-          = f.label t('search.title')
+          = f.label t('bulletins.search.title')
           = f.text_field :title_cont, { class: 'form-control string' }
       .col-4
         .form-group.mb-3.string.required
-          = f.label t('search.state')
+          = f.label t('bulletins.search.state')
           = f.select :state_eq, Bulletin.aasm.states, { include_blank: true }, { class: 'form-control select' }
       .col-2
-        = f.submit t('search.search'), { class: 'btn btn-primary' }
-        = link_to t('search.reset'), url, class: 'btn btn-outline-primary'
+        = f.submit t('search'), { class: 'btn btn-primary' }
+        = link_to t('reset'), url, class: 'btn btn-outline-primary'

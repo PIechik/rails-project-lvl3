@@ -1,5 +1,5 @@
 .mb-4
-  h2 = t('sign_in')
+  h2 = t('sign_in.title')
   hr
 .container.mt-sm-5.mb-5
   .row.justify-content-center
@@ -9,7 +9,7 @@
           = simple_form_for User.new, url: sessions_path, class: 'simple_form new_user' do |f|
             .form-group.mb-3.email.required.user_email
               = f.input :email
-            = f.button :submit, t('admin.sign_in'), class: 'btn btn-warning w-100'
+            = f.button :submit, t('sign_in.admin'), class: 'btn btn-warning w-100'
           .text-muted
             .d-flex.my-4
               hr.w-100.me-3
@@ -18,4 +18,4 @@
               hr.w-100.ms-3
             .row
               .col
-                = button_to 'Github', auth_request_path(:github), method: :post, class: 'btn w-100 border btn-outline-secondary'
+                = button_to t('sign_in.github'), auth_request_path(:github), method: :post, class: 'btn w-100 border btn-outline-secondary'

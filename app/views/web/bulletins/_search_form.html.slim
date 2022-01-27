@@ -2,12 +2,12 @@
     .row.my-2
       .col-6
         .form-group.mb-3.string.required
-          = f.label t('search.title')
+          = f.label t('bulletins.search.title')
           = f.text_field :title_cont, { class: 'form-control string' }
       .col-4
         .form-group.mb-3.string.required
-          = f.label t('search.category')
+          = f.label t('bulletins.search.category')
           = f.select :category_id_eq, options_from_collection_for_select(Category.all, :id, :name), { include_blank: true }, { class: 'form-control select' }
       .col-2
-        = f.submit t('search.search'), { class: 'btn btn-primary' }
-        = link_to t('search.reset'), root_path, class: 'btn btn-outline-primary'
+        = f.submit t('search'), { class: 'btn btn-primary' }
+        = link_to t('reset'), root_path, class: 'btn btn-outline-primary'

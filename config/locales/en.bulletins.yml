@@ -1,0 +1,20 @@
+en:
+  bulletins:
+    actions:
+      archive: Archive
+      confirm_archive: Confirm archive
+      moderate: To moderate
+      publish: Publish
+      reject: Reject
+      confirm_delete: Confirm deleting bulletin
+    bulletin: Bulletins
+    edit: Edit bulletin
+    id: Id
+    published_at: Published at
+    new: New bulletin
+    search: 
+      category: Choose category
+      state: Search by state
+      title: Search by title
+    state: State
+    title: Title

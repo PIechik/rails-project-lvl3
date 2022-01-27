@@ -1,0 +1,11 @@
+en:
+  categories:
+    actions:
+      confirm_delete: Confirm deleting category
+    id: Id
+    edit: Edit category
+    name: Name
+    new: New category
+    search:
+      name: Search by name
+    title: Categories

@@ -1,5 +1,5 @@
 .mb-4
-  h2 
+  h2
     = t('title')
   hr
 .p-3.bg-light
@@ -9,8 +9,7 @@
     .col-3.pt-2
       .card.shadow-sm
         - if bulletin.image.attached?
-          - if bulletin.image.representable?
-            = image_tag bulletin.image, class: 'card-img-top x-object-fit-cover', height: 200
+          = image_tag bulletin.image, class: 'card-img-top x-object-fit-cover', height: 200
         .card-body
           = link_to bulletin_path(bulletin.id) do
             h5.card-title

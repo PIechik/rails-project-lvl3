@@ -1,0 +1,12 @@
+one:
+  name: 'image'
+  record_type: 'Bulletin'
+  record_id: 1
+  blob_id: 1
+  created_at: <%= 5.day.ago.to_date %>
+two:
+  name: 'image'
+  record_type: 'Bulletin'
+  record_id: 2
+  blob_id: 2
+  created_at: <%= 5.day.ago.to_date %>

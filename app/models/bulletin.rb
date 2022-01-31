@@ -7,6 +7,10 @@ class Bulletin < ApplicationRecord
   belongs_to :category
   has_one_attached :image
 
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :image, attached: true
+
   aasm whiny_transitions: false, column: :state do
     state :draft, initial: true
     state :under_moderation, :published, :rejected, :archived

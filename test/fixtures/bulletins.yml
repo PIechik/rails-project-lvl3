@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 under_moderation:
+  id: 1
   user: two
   category: one
   title: <%= Faker::Lorem.word %>
@@ -8,6 +9,7 @@ under_moderation:
   state: under_moderation
 
 draft:
+  id: 2
   user: one
   category: two
   title: <%= Faker::Lorem.word %>

@@ -1,0 +1,20 @@
+one:
+  id: 1
+  key: '1'
+  filename: <%= Faker::File.file_name %>
+  content_type: 'image/png'
+  metadata: nil
+  byte_size: 2000
+  checksum: <%= Faker::Crypto.md5 %>
+  service_name: test
+  created_at: <%= 5.day.ago.to_date %>
+two:
+  id: 2
+  key: '2'
+  filename: <%= Faker::File.file_name %>
+  content_type: 'image/png'
+  metadata: nil
+  byte_size: 2000
+  checksum: <%= Faker::Crypto.md5 %>
+  service_name: test
+  created_at: <%= 5.day.ago.to_date %>

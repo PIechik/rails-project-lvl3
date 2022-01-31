@@ -56,9 +56,8 @@ module Web
     def moderate
       @bulletin = Bulletin.find(params[:id])
       authorize @bulletin
-      @bulletin.moderate
 
-      if @bulletin.save
+      if @bulletin.moderate && @bulletin.save
         redirect_to profile_path, notice: t('success')
       else
         redirect_to profile_path, notice: t('fail')
@@ -68,9 +67,8 @@ module Web
     def archive
       @bulletin = Bulletin.find(params[:id])
       authorize @bulletin
-      @bulletin.archive
 
-      if @bulletin.save
+      if @bulletin.archive && @bulletin.save
         redirect_to profile_path, notice: t('success')
       else
         redirect_to profile_path, notice: t('fail')

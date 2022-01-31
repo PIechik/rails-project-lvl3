@@ -12,9 +12,8 @@ module Web
       def publish
         @bulletin = Bulletin.find(params[:id])
         authorize([:admin, @bulletin])
-        @bulletin.publish
 
-        if @bulletin.save
+        if @bulletin.publish && @bulletin.save
           redirect_to admin_bulletins_path, notice: t('success')
         else
           redirect_to admin_bulletins_path, notice: t('fail')
@@ -24,9 +23,8 @@ module Web
       def reject
         @bulletin = Bulletin.find(params[:id])
         authorize([:admin, @bulletin])
-        @bulletin.reject
 
-        if @bulletin.save
+        if @bulletin.reject && @bulletin.save
           redirect_to admin_bulletins_path, notice: t('success')
         else
           redirect_to admin_bulletins_path, notice: t('fail')
@@ -36,9 +34,8 @@ module Web
       def archive
         @bulletin = Bulletin.find(params[:id])
         authorize([:admin, @bulletin])
-        @bulletin.archive
 
-        if @bulletin.save
+        if @bulletin.archive && @bulletin.save
           redirect_to admin_bulletins_path, notice: t('success')
         else
           redirect_to admin_bulletins_path, notice: t('fail')

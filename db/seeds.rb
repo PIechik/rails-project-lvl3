@@ -7,8 +7,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Category.create(name: 'Hobby')
-Category.create(name: 'Animals')
-User.create(name: 'TestUser', strategy: 'github', email: 'test@test.com', uid: 'test-id', admin: true)
-Bulletin.create(name: 'Cat', description: 'Simple cat', user_id: 1, category_id: 2)
-Bulletin.create(name: 'Brush', description: 'Big brush', user_id: 1, category_id: 1)
+%w[Hobby Animals Electronics Interior].each do |name|
+  Category.create(name: name)
+end
+categories = Category.all
+admin = User.create(name: Faker::Name.name, email: 'admin@example.com', admin: true)
+5.times do
+  bulletin = Bulletin.new(
+    title: Faker::Lorem.word,
+    description: Faker::Lorem.paragraph,
+    user_id: admin.id,
+    category_id: categories.sample.id
+  )
+  bulletin.image.attach(io: File.open(Rails.root.join('app/assets/images/dog.jpeg')), filename: 'dog.jpeg', content_type: 'image/jpeg')
+  bulletin.moderate
+  bulletin.publish
+  bulletin.save!
+end

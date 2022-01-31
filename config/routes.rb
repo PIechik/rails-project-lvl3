@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     post '/auth/:provider', to: redirect('/auth/:provider'), as: :auth_request
 
     namespace :admin do
+      root 'bulletins#index'
       resources :categories, except: :show
       resources :users, except: :show
       resources :bulletins, only: %i[index] do

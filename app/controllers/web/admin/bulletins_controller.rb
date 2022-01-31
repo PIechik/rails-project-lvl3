@@ -2,7 +2,7 @@
 
 module Web
   module Admin
-    class BulletinsController < ApplicationController
+    class BulletinsController < Web::Admin::ApplicationController
       def index
         @q = Bulletin.all.ransack(params[:q])
         @bulletins = @q.result.order(created_at: :desc).page(params[:page])

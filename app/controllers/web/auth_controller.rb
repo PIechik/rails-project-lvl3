@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Web
-  class AuthController < ApplicationController
+  class AuthController < Web::ApplicationController
     def callback
       @user = User.find_or_create_by_auth(auth_hash)
       session[:user_id] = @user.id

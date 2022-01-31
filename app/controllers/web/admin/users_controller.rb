@@ -2,7 +2,7 @@
 
 module Web
   module Admin
-    class UsersController < ApplicationController
+    class UsersController < Web::Admin::ApplicationController
       def index
         @q = User.all.ransack(params[:q])
         @users = @q.result.order(created_at: :desc).page(params[:page])

@@ -21,4 +21,4 @@
       li.nav-item.me-2
         = link_to t('nav.login'), new_session_path, class: 'nav-link text-dark'
       li.nav-item.me-2
-        <a class="nav-link text-dark" href="/users/new">Signup</a>
+        = link_to t('nav.sign_up'), new_user_path, class: 'nav-link text-dark'

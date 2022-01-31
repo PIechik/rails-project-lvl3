@@ -2,7 +2,7 @@
 
 module Web
   module Admin
-    class CategoriesController < ApplicationController
+    class CategoriesController < Web::Admin::ApplicationController
       def index
         @q = Category.all.ransack(params[:q])
         @categories = @q.result.order(created_at: :desc).page(params[:page])

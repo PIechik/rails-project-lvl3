@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Web
-  class ProfilesController < ApplicationController
+  class ProfilesController < Web::ApplicationController
     def index
       authorize Bulletin, :profile?
       @q = current_user.bulletins.ransack(params[:q])

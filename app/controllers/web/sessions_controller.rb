@@ -12,7 +12,7 @@ module Web
         session[:user_id] = @user.id
         redirect_to root_path, notice: t('success')
       else
-        redirect_to new_session_path, notice: t('admin.wrong_email')
+        redirect_to new_session_path, notice: t('sign_in.wrong_email')
       end
     end
 

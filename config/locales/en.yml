@@ -2,7 +2,7 @@ en:
   actions: Actions
   admin:
     title: Admin
-    wrong_email: 'To enter as admin use this email: admin@example.com'
+    admin_email: 'To enter as admin use this email: admin@example.com'
   destroy: Destroy
   edit: Edit
   fail: Fail
@@ -11,6 +11,7 @@ en:
   reset: reset
   sign_in:
     admin: Sign in as admin
+    wrong_email: Incorrect admin email
     github: Github
     social: Via social media
     title: Sign in

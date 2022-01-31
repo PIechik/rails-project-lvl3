@@ -18,7 +18,7 @@ module ActiveSupport
         post sessions_path, params: { user: { email: user.email } }
       else
         config_omniauth_mock(user)
-        post '/auth/github'
+        post auth_request_path(:github)
         follow_redirect!
       end
     end

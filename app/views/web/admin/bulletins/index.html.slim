@@ -27,5 +27,6 @@ h1.h2.mb-4
             - if policy([:admin, bulletin]).reject?
               = link_to t('bulletins.actions.reject'), reject_admin_bulletin_path(bulletin), method: :patch, class: 'me-2'
             - if policy([:admin, bulletin]).archive?
-              = link_to t('bulletins.actions.archive'), archive_admin_bulletin_path(bulletin), method: :patch, class: 'me-2 text-danger', data: { confirm: t('bulletins.actions.confirm_archive')}
+              = link_to t('bulletins.actions.archive'), archive_admin_bulletin_path(bulletin), method: :patch, class: 'me-2 text-danger',
+              data: { confirm: t('bulletins.actions.confirm_archive') }
 = paginate @bulletins

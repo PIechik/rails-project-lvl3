@@ -17,14 +17,14 @@ In this bulletin board users can sign in via github and then create new bulletin
 - Heroku CLI
 
 ### Instalation
-'''
+```
 make install
 make migrate
 make seed
 make start
-'''
+```
 To run tests and linting
-'''
+```
 make test
 make lint
-'''
+```

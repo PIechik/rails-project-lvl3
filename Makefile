@@ -9,6 +9,8 @@ install:
 	bin/rails webpacker:compile
 migrate:
 	bin/rails db:migrate
+seed:
+	bin/rails db:seed
 start:
 	bin/rails s
 .PHONY: test

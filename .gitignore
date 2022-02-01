@@ -40,3 +40,4 @@ yarn-debug.log*
 .yarn-integrity
 
 /config/credentials/production.key
+/config/app_environment_variables.rb

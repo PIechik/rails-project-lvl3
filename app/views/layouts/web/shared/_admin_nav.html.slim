@@ -1,10 +1,7 @@
 ul.nav.flex-column.nav-pills
   li.nav-item
-    - if policy([:admin, Bulletin]).index?
-      = link_to t('bulletins.bulletin'), admin_bulletins_path, class: 'nav-link link-dark'
+    = link_to t('bulletins.bulletin'), admin_bulletins_path, class: 'nav-link link-dark'
   li.nav-item
-    - if policy([:admin, User]).index?
-      = link_to t('users.title'), admin_users_path, class: 'nav-link link-dark'
+    = link_to t('users.title'), admin_users_path, class: 'nav-link link-dark'
   li.nav-item
-    - if policy([:admin, Category]).index?
-      = link_to t('categories.title'), admin_categories_path, class: 'nav-link link-dark'
+    = link_to t('categories.title'), admin_categories_path, class: 'nav-link link-dark'

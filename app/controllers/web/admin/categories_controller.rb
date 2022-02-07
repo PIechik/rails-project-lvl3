@@ -6,17 +6,14 @@ module Web
       def index
         @q = Category.all.ransack(params[:q])
         @categories = @q.result.order(created_at: :desc).page(params[:page])
-        authorize([:admin, @categories])
       end
 
       def new
         @category = Category.new
-        authorize([:admin, @category])
       end
 
       def create
         @category = Category.new(category_params)
-        authorize([:admin, @category])
 
         if @category.save
           redirect_to admin_categories_path, notice: t('success')
@@ -27,12 +24,10 @@ module Web
 
       def edit
         @category = Category.find(params[:id])
-        authorize([:admin, @category])
       end
 
       def update
         @category = Category.find(params[:id])
-        authorize([:admin, @category])
 
         if @category.update(category_params)
           redirect_to admin_categories_path, notice: t('success')
@@ -43,7 +38,6 @@ module Web
 
       def destroy
         @category = Category.find(params[:id])
-        authorize([:admin, @category])
 
         @category.destroy
         redirect_to admin_categories_path, notice: t('success')

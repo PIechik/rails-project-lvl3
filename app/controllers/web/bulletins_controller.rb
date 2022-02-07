@@ -5,12 +5,10 @@ module Web
     def index
       @q = Bulletin.published.ransack(params[:q])
       @bulletins = @q.result.order(created_at: :desc).page(params[:page]).per(20)
-      authorize @bulletins
     end
 
     def show
       @bulletin = Bulletin.find(params[:id])
-      authorize @bulletin
     end
 
     def new

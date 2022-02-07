@@ -2,8 +2,7 @@ h1.h2.mb-4
   = t('users.title')
 .p-3.bg-light
   = render 'search_form'
-- if policy([:admin, User]).new?
-  = link_to t('users.new_user'), new_admin_user_path
+= link_to t('users.new_user'), new_admin_user_path
 .row.mt-2
   table.table.table-borderless
     thead
@@ -20,8 +19,6 @@ h1.h2.mb-4
           td = user.name
           td = user.email
           td
-            - if policy([:admin, user]).edit?
-              = link_to t('edit'), edit_admin_user_path(user), class: 'me-2'
-            - if policy([:admin, user]).destroy?
-              = link_to t('destroy'), admin_user_path(user), method: :delete, class: 'me-2 text-danger', data: { confirm: t('users.actions.confirm_delete') }
+            = link_to t('edit'), edit_admin_user_path(user), class: 'me-2'
+            = link_to t('destroy'), admin_user_path(user), method: :delete, class: 'me-2 text-danger', data: { confirm: t('users.actions.confirm_delete') }
 = paginate @users

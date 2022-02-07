@@ -20,13 +20,9 @@ h1.h2.mb-4
           td = bulletin.state
           td = time_ago_in_words bulletin.created_at
           td
-            - if policy(bulletin).show?
-              = link_to t('show'), bulletin_path(bulletin), class: 'me-2'
-            - if policy([:admin, bulletin]).publish?
-              = link_to t('bulletins.actions.publish'), publish_admin_bulletin_path(bulletin), method: :patch, class: 'me-2'
-            - if policy([:admin, bulletin]).reject?
-              = link_to t('bulletins.actions.reject'), reject_admin_bulletin_path(bulletin), method: :patch, class: 'me-2'
-            - if policy([:admin, bulletin]).archive?
-              = link_to t('bulletins.actions.archive'), archive_admin_bulletin_path(bulletin), method: :patch, class: 'me-2 text-danger',
+            = link_to t('show'), bulletin_path(bulletin), class: 'me-2'
+            = link_to t('bulletins.actions.publish'), publish_admin_bulletin_path(bulletin), method: :patch, class: 'me-2'
+            = link_to t('bulletins.actions.reject'), reject_admin_bulletin_path(bulletin), method: :patch, class: 'me-2'
+            = link_to t('bulletins.actions.archive'), archive_admin_bulletin_path(bulletin), method: :patch, class: 'me-2 text-danger',
               data: { confirm: t('bulletins.actions.confirm_archive') }
 = paginate @bulletins

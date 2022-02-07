@@ -11,7 +11,7 @@
         li.nav-item.me-2
           = link_to t('bulletins.new'), new_bulletin_path, class: 'nav-link text-dark'
   ul.nav.nav-pills
-    - if policy([:admin, Bulletin]).index?
+    - if current_user&.admin?
       li.nav-item.me-2
           = link_to t('admin.title'), admin_bulletins_path, class: 'nav-link text-dark'
     - if current_user

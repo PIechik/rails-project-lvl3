@@ -3,14 +3,14 @@
 module Web
   module Admin
     class CategoriesController < Web::Admin::ApplicationController
+      helper_method :resource_category
+
       def index
         @q = Category.all.ransack(params[:q])
         @categories = @q.result.order(created_at: :desc).page(params[:page])
       end
 
-      def new
-        @category = Category.new
-      end
+      def new; end
 
       def create
         @category = Category.new(category_params)
@@ -22,14 +22,10 @@ module Web
         end
       end
 
-      def edit
-        @category = Category.find(params[:id])
-      end
+      def edit; end
 
       def update
-        @category = Category.find(params[:id])
-
-        if @category.update(category_params)
+        if resource_category.update(category_params)
           redirect_to admin_categories_path, notice: t('success')
         else
           render :edit, notice: t('fail')
@@ -37,13 +33,15 @@ module Web
       end
 
       def destroy
-        @category = Category.find(params[:id])
-
-        @category.destroy
+        resource_category.destroy
         redirect_to admin_categories_path, notice: t('success')
       end
 
       private
+
+      def resource_category
+        @resource_category ||= Category.find(params[:id])
+      end
 
       def category_params
         params.require(:category).permit(:name)

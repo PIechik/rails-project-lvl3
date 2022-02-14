@@ -9,9 +9,7 @@ module Web
       end
 
       def publish
-        @bulletin = Bulletin.find(params[:id])
-
-        if @bulletin.publish && @bulletin.save
+        if resource_bulletin.publish && resource_bulletin.save
           redirect_to admin_bulletins_path, notice: t('success')
         else
           redirect_to admin_bulletins_path, notice: t('fail')
@@ -19,9 +17,7 @@ module Web
       end
 
       def reject
-        @bulletin = Bulletin.find(params[:id])
-
-        if @bulletin.reject && @bulletin.save
+        if resource_bulletin.reject && resource_bulletin.save
           redirect_to admin_bulletins_path, notice: t('success')
         else
           redirect_to admin_bulletins_path, notice: t('fail')
@@ -29,13 +25,17 @@ module Web
       end
 
       def archive
-        @bulletin = Bulletin.find(params[:id])
-
-        if @bulletin.archive && @bulletin.save
+        if resource_bulletin.archive && resource_bulletin.save
           redirect_to admin_bulletins_path, notice: t('success')
         else
           redirect_to admin_bulletins_path, notice: t('fail')
         end
+      end
+
+      private
+
+      def resource_bulletin
+        @resource_bulletin ||= Bulletin.find(params[:id])
       end
     end
   end

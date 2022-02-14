@@ -2,14 +2,14 @@
 
 module Web
   class BulletinsController < Web::ApplicationController
+    helper_method :resource_bulletin
+
     def index
       @q = Bulletin.published.ransack(params[:q])
       @bulletins = @q.result.order(created_at: :desc).page(params[:page]).per(20)
     end
 
-    def show
-      @bulletin = Bulletin.find(params[:id])
-    end
+    def show; end
 
     def new
       @bulletin = Bulletin.new
@@ -28,15 +28,13 @@ module Web
     end
 
     def edit
-      @bulletin = Bulletin.find(params[:id])
-      authorize @bulletin
+      authorize resource_bulletin
     end
 
     def update
-      @bulletin = Bulletin.find(params[:id])
-      authorize @bulletin
+      authorize resource_bulletin
 
-      if @bulletin.update(bulletin_params)
+      if resource_bulletin.update(bulletin_params)
         redirect_to profile_path, notice: t('success')
       else
         render :edit, notice: t('fail')
@@ -44,18 +42,16 @@ module Web
     end
 
     def destroy
-      @bulletin = Bulletin.find(params[:id])
-      authorize @bulletin
+      authorize resource_bulletin
 
-      @bulletin.destroy
+      resource_bulletin.destroy
       redirect_to profile_path
     end
 
     def moderate
-      @bulletin = Bulletin.find(params[:id])
-      authorize @bulletin
+      authorize resource_bulletin
 
-      if @bulletin.moderate && @bulletin.save
+      if resource_bulletin.moderate && resource_bulletin.save
         redirect_to profile_path, notice: t('success')
       else
         redirect_to profile_path, notice: t('fail')
@@ -63,10 +59,9 @@ module Web
     end
 
     def archive
-      @bulletin = Bulletin.find(params[:id])
-      authorize @bulletin
+      authorize resource_bulletin
 
-      if @bulletin.archive && @bulletin.save
+      if resource_bulletin.archive && resource_bulletin.save
         redirect_to profile_path, notice: t('success')
       else
         redirect_to profile_path, notice: t('fail')
@@ -74,6 +69,10 @@ module Web
     end
 
     private
+
+    def resource_bulletin
+      @resource_bulletin ||= Bulletin.find(params[:id])
+    end
 
     def bulletin_params
       params.require(:bulletin).permit(:image, :title, :description, :category_id)

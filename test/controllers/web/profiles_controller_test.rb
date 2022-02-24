@@ -6,7 +6,7 @@ module Web
   class ProfilesControllerTest < ActionDispatch::IntegrationTest
     test 'should open profile page' do
       sign_in_user(users(:one))
-      get profile_path
+      get profiles_path
 
       assert_response :success
     end

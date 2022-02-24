@@ -6,7 +6,7 @@
         = link_to t('nav.home'), root_path, class: 'nav-link text-dark'
       - if policy(Bulletin).profile?
         li.nav-item.me-2
-          = link_to t('nav.my_bulletins'), profile_path, class: 'nav-link text-dark'
+          = link_to t('nav.my_bulletins'), profiles_path, class: 'nav-link text-dark'
       - if policy(Bulletin).new?
         li.nav-item.me-2
           = link_to t('bulletins.new'), new_bulletin_path, class: 'nav-link text-dark'

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
     resources :sessions, only: %i[new create destroy]
     resources :users, only: :new
-    get '/profile', to: 'profiles#index'
+    resources :profiles, only: :index
     get '/auth/:provider/callback', to: 'auth#callback', as: :callback_auth
     post '/auth/:provider', to: redirect('/auth/:provider'), as: :auth_request
 

@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'slim_lint', '~> 0.22.1'
   gem 'sqlite3', '~> 1.4'
 end
 
@@ -53,6 +56,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
+  gem 'minitest-power_assert'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
@@ -66,14 +70,10 @@ gem 'active_storage_validations'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'image_processing', '~> 1.2'
 gem 'kaminari'
-gem 'minitest-power_assert'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-rails_csrf_protection'
 gem 'pundit'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'rollbar'
-gem 'rubocop'
-gem 'rubocop-rails'
 gem 'simple_form'
-gem 'slim_lint', '~> 0.22.1'
 gem 'slim-rails'

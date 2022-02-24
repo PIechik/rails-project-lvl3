@@ -24,7 +24,7 @@ hr
               = link_to t('show'), bulletin_path(bulletin), class: 'me-2'
             - if policy(bulletin).edit?
               = link_to t('edit'), edit_bulletin_path(bulletin), class: 'me-2'
-            - if policy(bulletin).moderate?
+            - if policy(bulletin).moderate? && bulletin.may_moderate?
               = link_to t('bulletins.moderate'), moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
             - if policy(bulletin).archive?
               = link_to t('bulletins.archive'), archive_bulletin_path(bulletin), method: :patch, class: 'me-2 text-danger',

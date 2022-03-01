@@ -2,7 +2,7 @@ h1.h2.mb-4
   = t('nav.my_bulletins')
 hr
 .p-3.bg-light
-  = render 'web/shared/search_form', url: profiles_path
+  = render 'web/shared/search_form', url: profile_path
 = link_to t('bulletins.new'), new_bulletin_path
 .row.mt-2
   table.table.table-borderless
@@ -24,8 +24,8 @@ hr
               = link_to t('show'), bulletin_path(bulletin), class: 'me-2'
             - if policy(bulletin).edit?
               = link_to t('edit'), edit_bulletin_path(bulletin), class: 'me-2'
-            - if policy(bulletin).moderate? && bulletin.may_moderate?
-              = link_to t('bulletins.moderate'), moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
+            - if policy(bulletin).moderate? && bulletin.may_send_to_moderate?
+              = link_to t('bulletins.actions.send_to_moderate'), moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
             - if policy(bulletin).archive?
               = link_to t('bulletins.archive'), archive_bulletin_path(bulletin), method: :patch, class: 'me-2 text-danger',
               data: { confirm: t('bulletins.actions.confirm_archive') }

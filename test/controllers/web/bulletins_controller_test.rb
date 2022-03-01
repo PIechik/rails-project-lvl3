@@ -53,14 +53,14 @@ module Web
 
       @bulletin.reload
       assert { @bulletin.title == params[:title] }
-      assert_redirected_to profiles_path
+      assert_redirected_to profile_path
     end
 
     test 'should destroy bulletin' do
       delete bulletin_path(@bulletin)
 
       assert { !Bulletin.find_by(id: @bulletin.id) }
-      assert_redirected_to profiles_path
+      assert_redirected_to profile_path
     end
 
     test 'should send bulletin to moderation' do
@@ -68,7 +68,7 @@ module Web
 
       @bulletin.reload
       assert { @bulletin.under_moderation? }
-      assert_redirected_to profiles_path
+      assert_redirected_to profile_path
     end
 
     test 'should archive bulletin' do
@@ -76,7 +76,7 @@ module Web
 
       @bulletin.reload
       assert { @bulletin.archived? }
-      assert_redirected_to profiles_path
+      assert_redirected_to profile_path
     end
   end
 end

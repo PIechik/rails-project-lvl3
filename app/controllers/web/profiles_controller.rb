@@ -2,7 +2,7 @@
 
 module Web
   class ProfilesController < Web::ApplicationController
-    def index
+    def show
       authorize Bulletin, :profile?
       @q = current_user.bulletins.ransack(params[:q])
       @bulletins = @q.result.order(created_at: :desc).page(params[:page])

@@ -35,7 +35,7 @@ module Web
       authorize resource_bulletin
 
       if resource_bulletin.update(bulletin_params)
-        redirect_to profiles_path, notice: t('success')
+        redirect_to profile_path, notice: t('success')
       else
         render :edit, notice: t('fail')
       end
@@ -45,16 +45,16 @@ module Web
       authorize resource_bulletin
 
       resource_bulletin.destroy
-      redirect_to profiles_path
+      redirect_to profile_path
     end
 
     def moderate
       authorize resource_bulletin
 
-      if resource_bulletin.moderate && resource_bulletin.save
-        redirect_to profiles_path, notice: t('success')
+      if resource_bulletin.send_to_moderate && resource_bulletin.save
+        redirect_to profile_path, notice: t('success')
       else
-        redirect_to profiles_path, notice: t('fail')
+        redirect_to profile_path, notice: t('fail')
       end
     end
 
@@ -62,9 +62,9 @@ module Web
       authorize resource_bulletin
 
       if resource_bulletin.archive && resource_bulletin.save
-        redirect_to profiles_path, notice: t('success')
+        redirect_to profile_path, notice: t('success')
       else
-        redirect_to profiles_path, notice: t('fail')
+        redirect_to profile_path, notice: t('fail')
       end
     end
 

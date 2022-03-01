@@ -3,7 +3,7 @@ en:
     actions:
       archive: Archive
       confirm_archive: Confirm archive
-      moderate: To moderate
+      send_to_moderate: Send to moderate
       publish: Publish
       reject: Reject
       confirm_delete: Confirm deleting bulletin
@@ -18,3 +18,8 @@ en:
       title: Search by title
     state: State
     title: Title
+    flash: 
+      publish: Bulletin was published
+      publish_failed: 
+      reject: Bulletin was rejected
+      archive: Bulletin was archived 

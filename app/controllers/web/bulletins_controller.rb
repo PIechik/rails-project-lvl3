@@ -51,7 +51,7 @@ module Web
     def moderate
       authorize resource_bulletin
 
-      if resource_bulletin.send_to_moderate && resource_bulletin.save
+      if resource_bulletin.send_to_moderate!
         redirect_to profile_path, notice: t('success')
       else
         redirect_to profile_path, notice: t('fail')
@@ -61,7 +61,7 @@ module Web
     def archive
       authorize resource_bulletin
 
-      if resource_bulletin.archive && resource_bulletin.save
+      if resource_bulletin.archive!
         redirect_to profile_path, notice: t('success')
       else
         redirect_to profile_path, notice: t('fail')

@@ -9,7 +9,7 @@ module Web
       end
 
       def publish
-        if resource_bulletin.publish && resource_bulletin.save
+        if resource_bulletin.publish!
           redirect_to admin_bulletins_path, notice: t('success')
         else
           redirect_to admin_bulletins_path, notice: t('fail')
@@ -17,7 +17,7 @@ module Web
       end
 
       def reject
-        if resource_bulletin.reject && resource_bulletin.save
+        if resource_bulletin.reject!
           redirect_to admin_bulletins_path, notice: t('success')
         else
           redirect_to admin_bulletins_path, notice: t('fail')
@@ -25,7 +25,7 @@ module Web
       end
 
       def archive
-        if resource_bulletin.archive && resource_bulletin.save
+        if resource_bulletin.archive!
           redirect_to admin_bulletins_path, notice: t('success')
         else
           redirect_to admin_bulletins_path, notice: t('fail')

@@ -18,7 +18,7 @@ module Web
         if @user.save
           redirect_to admin_users_path, notice: t('success')
         else
-          render :new, notice: t('fail')
+          render :new, notice: t('error', model: 'user', errors: @user.errors.full_messages)
         end
       end
 
@@ -28,7 +28,7 @@ module Web
         if resource_user.update(user_params)
           redirect_to admin_users_path, notice: t('success')
         else
-          render :edit, notice: t('fail')
+          render :edit, notice: t('error', model: 'user', errors: resource_user.errors.full_messages)
         end
       end
 

@@ -10,6 +10,7 @@ en:
     bulletin: Bulletins
     edit: Edit bulletin
     id: Id
+    under_moderation: Bulletins on moderation
     published_at: Published at
     new: New bulletin
     search: 
@@ -18,8 +19,12 @@ en:
       title: Search by title
     state: State
     title: Title
-    flash: 
-      publish: Bulletin was published
-      publish_failed: 
-      reject: Bulletin was rejected
-      archive: Bulletin was archived 
+    notice:
+      publishing: Bulletin was successfully published
+      publishing_failed: Publishing failed due to error
+      rejecting: Bulletin was successfully rejected
+      rejecting_failed: Rejecting failed due to error 
+      archiving: Bulletin was successfully archived
+      archiving_failed: Archiving failed due to error
+      to_moderation: Bulletin was successfully sent to moderation
+      to_moderation_failed: Sending to moderation failed due to error

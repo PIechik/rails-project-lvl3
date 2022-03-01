@@ -23,7 +23,7 @@ module Web
       if @bulletin.save
         redirect_to @bulletin, notice: t('success')
       else
-        render :new, notice: t('fail')
+        render :new, notice: t('error', model: 'bulletin', errors: @bulletin.errors.full_messages)
       end
     end
 
@@ -37,7 +37,7 @@ module Web
       if resource_bulletin.update(bulletin_params)
         redirect_to profile_path, notice: t('success')
       else
-        render :edit, notice: t('fail')
+        render :edit, notice: t('error', model: 'bulletin', errors: resource_bulletin.errors.full_messages)
       end
     end
 
@@ -52,9 +52,9 @@ module Web
       authorize resource_bulletin
 
       if resource_bulletin.send_to_moderate!
-        redirect_to profile_path, notice: t('success')
+        redirect_to profile_path, notice: t('bulletins.notice.to_moderation')
       else
-        redirect_to profile_path, notice: t('fail')
+        redirect_to profile_path, notice: t('bulletins.notice.to_moderation_failed')
       end
     end
 
@@ -62,9 +62,9 @@ module Web
       authorize resource_bulletin
 
       if resource_bulletin.archive!
-        redirect_to profile_path, notice: t('success')
+        redirect_to profile_path, notice: t('bulletins.notice.archiving')
       else
-        redirect_to profile_path, notice: t('fail')
+        redirect_to profile_path, notice: t('bulletins.notice.archiving_failed')
       end
     end
 

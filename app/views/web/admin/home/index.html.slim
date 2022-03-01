@@ -1,23 +1,17 @@
 h1.h2.mb-4
-  = t('bulletins.bulletin')
-.p-3.bg-light
-  = render 'web/shared/search_form', url: admin_bulletins_path
+  = t('bulletins.under_moderation')
 .row.mt-2
   table.table.table-borderless
     thead
       tr
-        th{ scope: :col } = t('bulletins.id')
         th{ scope: :col } = t('bulletins.title')
-        th{ scope: :col } = t('bulletins.state')
         th{ scope: :col } = t('bulletins.published_at')
         th{ scope: :col } = t('actions')
         th
     tbody
       - @bulletins.each do |bulletin|
         tr
-          td = bulletin.id
           td = bulletin.title
-          td = bulletin.state
           td = time_ago_in_words bulletin.created_at
           td
             = link_to t('show'), bulletin_path(bulletin), class: 'me-2'

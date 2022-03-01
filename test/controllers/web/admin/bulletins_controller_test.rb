@@ -21,7 +21,6 @@ module Web
 
         @bulletin.reload
         assert { @bulletin.published? }
-        assert_redirected_to admin_bulletins_path
       end
 
       test 'should reject bulletin' do
@@ -29,7 +28,6 @@ module Web
 
         @bulletin.reload
         assert { @bulletin.rejected? }
-        assert_redirected_to admin_bulletins_path
       end
 
       test 'should archive bulletin' do
@@ -37,7 +35,6 @@ module Web
 
         @bulletin.reload
         assert { @bulletin.archived? }
-        assert_redirected_to admin_bulletins_path
       end
     end
   end

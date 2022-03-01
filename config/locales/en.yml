@@ -5,6 +5,7 @@ en:
     admin_email: 'To enter as admin use this email: admin@example.com'
   destroy: Destroy
   edit: Edit
+  error: "Errors prohibited %{model} from being saved: %{errors}"
   fail: Fail
   footer: Hexlet
   search: Search

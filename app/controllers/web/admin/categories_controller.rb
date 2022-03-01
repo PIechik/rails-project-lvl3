@@ -18,7 +18,7 @@ module Web
         if @category.save
           redirect_to admin_categories_path, notice: t('success')
         else
-          render :new, notice: t('fail')
+          render :new, notice: t('error', model: 'category', errors: @category.errors.full_messages)
         end
       end
 
@@ -28,7 +28,7 @@ module Web
         if resource_category.update(category_params)
           redirect_to admin_categories_path, notice: t('success')
         else
-          render :edit, notice: t('fail')
+          render :edit, notice: t('error', model: 'category', errors: resource_category.errors.full_messages)
         end
       end
 

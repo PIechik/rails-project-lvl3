@@ -20,15 +20,12 @@ hr
           td = bulletin.state
           td = time_ago_in_words bulletin.created_at
           td
-            - if policy(bulletin).show?
-              = link_to t('show'), bulletin_path(bulletin), class: 'me-2'
-            - if policy(bulletin).edit?
-              = link_to t('edit'), edit_bulletin_path(bulletin), class: 'me-2'
-            - if policy(bulletin).moderate? && bulletin.may_send_to_moderate?
+            = link_to t('show'), bulletin_path(bulletin), class: 'me-2'
+            = link_to t('edit'), edit_bulletin_path(bulletin), class: 'me-2'
+            - if bulletin.may_send_to_moderate?
               = link_to t('bulletins.actions.send_to_moderate'), moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
-            - if policy(bulletin).archive?
+            - if bulletin.may_archive?
               = link_to t('bulletins.archive'), archive_bulletin_path(bulletin), method: :patch, class: 'me-2 text-danger',
               data: { confirm: t('bulletins.actions.confirm_archive') }
-            - if policy(bulletin).destroy?
-              = link_to t('destroy'), bulletin_path(bulletin), method: :delete, class: 'me-2 text-danger', data: { confirm: t('bulletins.actions.confirm_delete') }
+            = link_to t('destroy'), bulletin_path(bulletin), method: :delete, class: 'me-2 text-danger', data: { confirm: t('bulletins.actions.confirm_delete') }
 = paginate @bulletins

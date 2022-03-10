@@ -11,10 +11,10 @@
         li.nav-item.me-2
           = link_to t('bulletins.new'), new_bulletin_path, class: 'nav-link text-dark'
   ul.nav.nav-pills
-    - if current_user&.admin?
+    - if signed_in_as_admin?
       li.nav-item.me-2
         = link_to t('admin.title'), admin_root_path, class: 'nav-link text-dark'
-    - if current_user
+    - if signed_in?
       li.nav-item.me-2
         = link_to t('nav.sign_out'), session_path(current_user.id), method: :delete, class: 'nav-link text-dark'
     - else

@@ -8,6 +8,7 @@ en:
   error: "Errors prohibited %{model} from being saved: %{errors}"
   fail: Fail
   footer: Hexlet
+  head_title: BulletinBoard
   search: Search
   reset: reset
   sign_in:

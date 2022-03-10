@@ -5,6 +5,7 @@ module Web
     helper_method :resource_bulletin
 
     def index
+      @categories = Category.all
       @q = Bulletin.published.ransack(params[:q])
       @bulletins = @q.result.order(created_at: :desc).page(params[:page]).per(20)
     end

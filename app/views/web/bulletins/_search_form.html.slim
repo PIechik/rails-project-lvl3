@@ -7,7 +7,7 @@
       .col-4
         .form-group.mb-3.string.required
           = f.label t('bulletins.search.category')
-          = f.select :category_id_eq, options_from_collection_for_select(Category.all, :id, :name), { include_blank: true }, { class: 'form-control select' }
+          = f.select :category_id_eq, options_from_collection_for_select(@categories, :id, :name), { include_blank: true }, { class: 'form-control select' }
       .col-2
         = f.submit t('search'), { class: 'btn btn-primary' }
         = link_to t('reset'), root_path, class: 'btn btn-outline-primary'

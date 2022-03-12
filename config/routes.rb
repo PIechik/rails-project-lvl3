@@ -18,9 +18,9 @@ Rails.application.routes.draw do
 
     namespace :admin do
       root 'home#index'
-      resources :categories, except: :show
-      resources :users, except: :show
-      resources :bulletins, only: %i[index] do
+      resources :categories, only: %i[index new create edit update destroy]
+      resources :users, only: %i[index new create edit update destroy]
+      resources :bulletins, only: :index do
         member do
           patch :publish
           patch :reject

@@ -67,7 +67,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'aasm'
 gem 'active_storage_validations'
-gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+gem 'faker', github: 'faker-ruby/faker', branch: 'master'
 gem 'image_processing', '~> 1.2'
 gem 'kaminari'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'

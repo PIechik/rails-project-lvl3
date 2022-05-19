@@ -2,8 +2,6 @@
 
 module Web
   class BulletinsController < Web::ApplicationController
-    helper_method :resource_bulletin
-
     def index
       @categories = Category.all
       @q = Bulletin.published.ransack(params[:q])
@@ -62,10 +60,6 @@ module Web
     end
 
     private
-
-    def resource_bulletin
-      @resource_bulletin ||= Bulletin.find(params[:id])
-    end
 
     def bulletin_params
       params.require(:bulletin).permit(:image, :title, :description, :category_id)

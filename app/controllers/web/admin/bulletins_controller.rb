@@ -19,12 +19,6 @@ module Web
       def archive
         redirect_to admin_root_path, notice: t("bulletins.notice.archiving#{locale_name_postfix(resource_bulletin.archive!)}")
       end
-
-      private
-
-      def resource_bulletin
-        @resource_bulletin ||= Bulletin.find(params[:id])
-      end
     end
   end
 end

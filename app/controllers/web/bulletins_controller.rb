@@ -52,21 +52,13 @@ module Web
     def moderate
       authorize resource_bulletin
 
-      if resource_bulletin.send_to_moderate!
-        redirect_to profile_path, notice: t('bulletins.notice.to_moderation')
-      else
-        redirect_to profile_path, notice: t('bulletins.notice.to_moderation_failed')
-      end
+      redirect_to profile_path, notice: t("bulletins.notice.to_moderation#{locale_name_postfix(resource_bulletin.send_to_moderate!)}")
     end
 
     def archive
       authorize resource_bulletin
 
-      if resource_bulletin.archive!
-        redirect_to profile_path, notice: t('bulletins.notice.archiving')
-      else
-        redirect_to profile_path, notice: t('bulletins.notice.archiving_failed')
-      end
+      redirect_to profile_path, notice: t("bulletins.notice.archiving#{locale_name_postfix(resource_bulletin.archive!)}")
     end
 
     private

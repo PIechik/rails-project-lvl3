@@ -9,27 +9,15 @@ module Web
       end
 
       def publish
-        if resource_bulletin.publish!
-          redirect_to admin_root_path, notice: t('bulletins.notice.publishing')
-        else
-          redirect_to admin_root_path, notice: t('bulletins.notice.publishing_failed')
-        end
+        redirect_to admin_root_path, notice: t("bulletins.notice.publishing#{locale_name_postfix(resource_bulletin.publish!)}")
       end
 
       def reject
-        if resource_bulletin.reject!
-          redirect_to admin_root_path, notice: t('bulletins.notice.rejecting')
-        else
-          redirect_to admin_root_path, notice: t('bulletins.notice.rejecting_failed')
-        end
+        redirect_to admin_root_path, notice: t("bulletins.notice.rejecting#{locale_name_postfix(resource_bulletin.reject!)}")
       end
 
       def archive
-        if resource_bulletin.archive!
-          redirect_to admin_root_path, notice: t('bulletins.notice.archiving')
-        else
-          redirect_to admin_root_path, notice: t('bulletins.notice.archiving_failed')
-        end
+        redirect_to admin_root_path, notice: t("bulletins.notice.archiving#{locale_name_postfix(resource_bulletin.archive!)}")
       end
 
       private
